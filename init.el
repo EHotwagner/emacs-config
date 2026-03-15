@@ -35,7 +35,9 @@
 ;; Docker/Podman management
 (use-package docker
   :ensure t
-  :bind ("C-c d" . docker))
+  :bind ("C-c d" . docker)
+  :config
+  (setq docker-command "podman"))
 
 ;; Dockerfile/Containerfile editing
 (use-package dockerfile-mode
@@ -71,6 +73,19 @@
     (find-file (format "/podman:%s:/" container))))
 
 (global-set-key (kbd "C-c p") #'podman-find-file)
+
+;; Open vterm session in a running Podman container
+(defun podman-vterm ()
+  "Open vterm in a running Podman container."
+  (interactive)
+  (let* ((containers (split-string
+                      (shell-command-to-string
+                       "podman ps --format '{{.Names}}'") "\n" t))
+         (container (completing-read "Container: " containers)))
+    (vterm (format "*podman:%s*" container))
+    (vterm-send-string (format "podman exec -it %s /bin/bash\n" container))))
+
+(global-set-key (kbd "C-c v") #'podman-vterm)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
