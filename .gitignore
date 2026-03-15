@@ -1,0 +1,15 @@
+# Package installations (auto-installed via use-package)
+elpa/
+
+# Native compilation cache
+eln-cache/
+
+# Session data
+auto-save-list/
+projects
+*~
+\#*\#
+*.elc
+
+# OS files
+.DS_Store
