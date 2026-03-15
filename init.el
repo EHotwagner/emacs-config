@@ -60,6 +60,18 @@
   (claude-code-mode)
   :bind-keymap ("C-c c" . claude-code-command-map))
 
+;; Open files in running Podman containers via TRAMP
+(defun podman-find-file ()
+  "Find file in a running Podman container."
+  (interactive)
+  (let* ((containers (split-string
+                      (shell-command-to-string
+                       "podman ps --format '{{.Names}}'") "\n" t))
+         (container (completing-read "Container: " containers)))
+    (find-file (format "/podman:%s:/" container))))
+
+(global-set-key (kbd "C-c p") #'podman-find-file)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
