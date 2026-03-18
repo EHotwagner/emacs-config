@@ -3,6 +3,9 @@
 ;; Font size
 (set-face-attribute 'default nil :height 140)
 
+;; Use ibuffer instead of default buffer list
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 ;; Auto-revert buffers (including dired) when files change on disk
 (setq global-auto-revert-non-file-buffers t)
 (global-auto-revert-mode 1)
@@ -27,6 +30,17 @@
   :config
   (require 'eglot-fsharp)
   (setq eglot-fsharp-server-install-dir nil))
+
+;; Fix fsautocomplete path for TRAMP/Podman containers
+;; eglot-fsharp expands ~ to the local home, but in the container
+;; fsautocomplete lives under /home/developer/.dotnet/tools/
+(connection-local-set-profile-variables
+ 'podman-fsharp-profile
+ '((eglot-fsharp-server-path . "/home/developer/.dotnet/tools/")))
+
+(connection-local-set-profiles
+ '(:application tramp :protocol "podman")
+ 'podman-fsharp-profile)
 
 ;; Install vterm (terminal backend for claude-code-ide)
 (use-package vterm
