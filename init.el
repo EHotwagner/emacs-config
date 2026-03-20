@@ -83,7 +83,8 @@
 ;; fsautocomplete lives under /home/developer/.dotnet/tools/
 (connection-local-set-profile-variables
  'podman-fsharp-profile
- '((eglot-fsharp-server-path . "/home/developer/.dotnet/tools/")))
+ '((eglot-fsharp-server-path . "/home/developer/.dotnet/tools/")
+   (tramp-direct-async-process . t)))
 
 (connection-local-set-profiles
  '(:application tramp :protocol "podman")
@@ -138,7 +139,10 @@
                       (shell-command-to-string "podman ps --format '{{.Names}}'"))
               (shell-command "podman start emacs-dev"))
             (vterm "*projects*")
-            (vterm-send-string "podman exec -it emacs-dev bash -c 'cd /home/developer/Projects && exec bash'\n")))
+            (vterm-send-string "podman exec -it emacs-dev bash -c 'cd /home/developer/Projects && exec bash'\n")
+            ;; cterm - general terminal in emacs-dev container
+            (vterm "*cterm*")
+            (vterm-send-string "podman exec -it emacs-dev bash\n")))
 
 ;; Open files in running Podman containers via TRAMP
 (defun podman-find-file ()
@@ -164,6 +168,18 @@
     (vterm-send-string (format "podman exec -it %s /bin/bash\n" container))))
 
 (global-set-key (kbd "C-c v") #'podman-vterm)
+
+;; cterm - dedicated vterm terminal in the emacs-dev container
+(defun cterm ()
+  "Open a vterm terminal named *cterm* in the emacs-dev container."
+  (interactive)
+  (unless (string-match-p "emacs-dev"
+            (shell-command-to-string "podman ps --format '{{.Names}}'"))
+    (shell-command "podman start emacs-dev"))
+  (vterm "*cterm*")
+  (vterm-send-string "podman exec -it emacs-dev bash\n"))
+
+(global-set-key (kbd "C-c t") #'cterm)
 
 ;; Dirvish - enhanced dired
 (setq dired-dwim-target t)

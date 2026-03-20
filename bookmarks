@@ -2,7 +2,13 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("SystemAdmin"
+(("cprojects"
+ (filename . "/podman:emacs-dev:~/")
+ (front-context-string . "projects\n  drwxr")
+ (rear-context-string . "96 Mar 19 17:46 ")
+ (position . 1211)
+ (last-modified 27069 2225 985287 459000))
+("SystemAdmin"
  (filename . "~/Documents/Projects/SystemAdmin/")
  (front-context-string . "AnewLayoutStart.")
  (rear-context-string . "0 11. Mär 07:13 ")
