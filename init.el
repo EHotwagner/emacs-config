@@ -123,6 +123,23 @@
   (claude-code-mode)
   :bind-keymap ("C-c c" . claude-code-command-map))
 
+;; Startup buffers
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            ;; Claude Code in SystemAdmin → *sysadmin*
+            (let ((default-directory "~/Documents/Projects/SystemAdmin/"))
+              (claude-code)
+              (when-let ((buf (car (claude-code--find-claude-buffers-for-directory default-directory))))
+                (with-current-buffer buf
+                  (rename-buffer "*sysadmin*"))))
+            ;; vterm in emacs-dev container → *projects*
+            ;; Start container if not running
+            (unless (string-match-p "emacs-dev"
+                      (shell-command-to-string "podman ps --format '{{.Names}}'"))
+              (shell-command "podman start emacs-dev"))
+            (vterm "*projects*")
+            (vterm-send-string "podman exec -it emacs-dev bash -c 'cd /home/developer/Projects && exec bash'\n")))
+
 ;; Open files in running Podman containers via TRAMP
 (defun podman-find-file ()
   "Find file in a running Podman container."
@@ -149,10 +166,13 @@
 (global-set-key (kbd "C-c v") #'podman-vterm)
 
 ;; Dirvish - enhanced dired
+(setq dired-dwim-target t)
 (use-package dirvish
   :ensure t
   :init
-  (dirvish-override-dired-mode))
+  (dirvish-override-dired-mode)
+  :bind (:map dirvish-mode-map
+         ("TAB" . dirvish-layout-toggle)))
 
 ;; Markdown editing and live preview
 (use-package markdown-mode
