@@ -5,6 +5,17 @@
 
 ;; Use ibuffer instead of default buffer list
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(setq ibuffer-saved-filter-groups
+      '(("default"
+         ("Dired/Dirvish" (mode . dired-mode))
+         ("Magit" (name . "^magit"))
+         ("Org" (mode . org-mode))
+         ("F#" (mode . fsharp-mode))
+         ("Markdown" (mode . markdown-mode))
+         ("Terminal" (mode . vterm-mode))
+         ("Emacs" (or (name . "^\\*") (name . "^\\s-"))))))
+(add-hook 'ibuffer-mode-hook
+          (lambda () (ibuffer-switch-to-saved-filter-groups "default")))
 
 ;; Auto-revert buffers (including dired) when files change on disk
 (setq global-auto-revert-non-file-buffers t)
@@ -13,6 +24,25 @@
 ;; Package archives
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
+;; Vertico - vertical completion UI
+(use-package vertico
+  :ensure t
+  :init
+  (vertico-mode))
+
+;; Orderless - flexible completion matching (fuzzy, regex, etc.)
+(use-package orderless
+  :ensure t
+  :config
+  (setq completion-styles '(orderless basic)))
+
+;; Consult - enhanced search and navigation commands
+(use-package consult
+  :ensure t
+  :bind (("C-x b" . consult-buffer)
+         ("C-s" . consult-line)
+         ("M-g g" . consult-goto-line)))
 
 ;; Theme packages
 (use-package doom-themes :ensure t)
