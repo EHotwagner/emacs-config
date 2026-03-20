@@ -14,6 +14,23 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+;; Theme packages
+(use-package doom-themes :ensure t)
+(use-package ef-themes :ensure t)
+
+;; Load theme early (before dashboard and other UI packages)
+(load-theme 'manoj-dark t)
+
+;; Dashboard - startup screen with recent files and projects
+(use-package dashboard
+  :ensure t
+  :config
+  (setq dashboard-items '((recents . 10)
+                          (bookmarks . 5)
+                          (projects . 5)))
+  (setq dashboard-center-content t)
+  (dashboard-setup-startup-hook))
+
 ;; Install org-mode
 (use-package org
   :ensure t)
@@ -122,7 +139,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(deeper-blue))
+ '(custom-enabled-themes '(doom-dracula))
+ '(custom-safe-themes
+   '("8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098"
+     default))
  '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

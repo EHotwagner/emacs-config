@@ -1,0 +1,17 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("SystemAdmin"
+ (filename . "~/Documents/Projects/SystemAdmin/")
+ (front-context-string . "AnewLayoutStart.")
+ (rear-context-string . "0 11. Mär 07:13 ")
+ (position . 196)
+ (last-modified 27067 37482 545587 663000))
+("Projects"
+ (filename . "~/Documents/Projects/")
+ (front-context-string . "SystemAdmin\n  dr")
+ (rear-context-string . "6 18. Mär 17:36 ")
+ (position . 871)
+ (last-modified 27067 37469 160466 526000))
+)
