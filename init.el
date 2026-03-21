@@ -92,7 +92,21 @@
 
 ;; Install vterm (terminal backend for claude-code-ide)
 (use-package vterm
-  :ensure t)
+  :ensure t
+  :config
+  ;; Enable drag-and-drop file paths into vterm (for Claude Code image input, etc.)
+  (defun vterm-dnd-send-file-path (uri action)
+    "Handle drag-and-drop in vterm by sending the file path as text."
+    (let ((file (dnd-get-local-file-name uri t)))
+      (when (and file (eq major-mode 'vterm-mode))
+        (vterm-send-string file)
+        action)))
+  (defun vterm-setup-dnd ()
+    "Set up drag-and-drop handler for vterm buffers."
+    (setq-local dnd-protocol-alist
+                (cons '("^file:" . vterm-dnd-send-file-path)
+                      dnd-protocol-alist)))
+  (add-hook 'vterm-mode-hook #'vterm-setup-dnd))
 
 ;; Docker/Podman management
 (use-package docker
