@@ -17,6 +17,10 @@
 (add-hook 'ibuffer-mode-hook
           (lambda () (ibuffer-switch-to-saved-filter-groups "default")))
 
+;; Kill buffers and processes without confirmation
+(setq kill-buffer-query-functions nil)
+(setq confirm-kill-processes nil)
+
 ;; Auto-revert buffers (including dired) when files change on disk
 (setq global-auto-revert-non-file-buffers t)
 (global-auto-revert-mode 1)
