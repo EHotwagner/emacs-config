@@ -81,10 +81,11 @@
 ;; Fix fsautocomplete path for TRAMP/Podman containers
 ;; eglot-fsharp expands ~ to the local home, but in the container
 ;; fsautocomplete lives under /home/developer/.dotnet/tools/
+;; NOTE: tramp-direct-async-process must be nil (default) — setting it
+;; to t breaks stdin forwarding for Podman, causing eglot LSP timeouts.
 (connection-local-set-profile-variables
  'podman-fsharp-profile
- '((eglot-fsharp-server-path . "/home/developer/.dotnet/tools/")
-   (tramp-direct-async-process . t)))
+ '((eglot-fsharp-server-path . "/home/developer/.dotnet/tools/")))
 
 (connection-local-set-profiles
  '(:application tramp :protocol "podman")
