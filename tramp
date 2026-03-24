@@ -1,11 +1,11 @@
-;; -*- emacs-lisp -*- <26/03/24 08:20:03 ~/.config/emacs/tramp>
+;; -*- emacs-lisp -*- <26/03/24 16:12:16 ~/.config/emacs/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; Run `M-x tramp-cleanup-all-connections' instead.
 
 (((tramp-file-name "cache" nil nil nil nil nil nil)
   ("tramp-version" "2.7.3.30.2"))
  ((tramp-file-name "podman" nil nil "emacs-dev" nil nil nil)
-  ("null-device" "/dev/null") ("uname" "Linux 6.19.8-arch1-1")
+  ("null-device" "/dev/null") ("uname" "Linux 6.19.9-arch1-1")
   ("locale" "LC_ALL=C.utf8") ("test" "test") ("file-exists" "test -e")
   ("remote-path"
    ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin"
@@ -21,6 +21,4 @@
    "--quoting-style=literal --show-control-chars")
   ("df-blocksize" 1)
   ("df" "\\df --block-size=1 --output=size,used,avail") ("bzr" nil)
-  ("git" "\\git") ("hg" nil) ("perl-file-spec" t)
-  ("perl-cwd-realpath" t) ("perl" "\\perl") ("dev-tty" t)
-  ("mknod-or-mkfifo" "mknod %s p") ("touch-t" t) ("touch" "\\touch")))
+  ("git" "\\git") ("hg" nil)))
