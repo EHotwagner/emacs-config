@@ -83,7 +83,10 @@
   :hook (fsharp-mode . eglot-ensure)
   :config
   (require 'eglot-fsharp)
-  (setq eglot-fsharp-server-install-dir nil))
+  (setq eglot-fsharp-server-install-dir nil)
+  ;; Use fsi-mcp-server as FSI backend — shares the session with Claude Code via MCP
+  (setq inferior-fsharp-program
+        "dotnet run --project /home/developer/tools/fsi-mcp-server/server"))
 
 ;; Fix fsautocomplete path for TRAMP/Podman containers
 ;; eglot-fsharp expands ~ to the local home, but in the container
