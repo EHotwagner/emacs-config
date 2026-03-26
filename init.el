@@ -82,21 +82,19 @@
   :ensure t
   :hook (fsharp-mode . eglot-ensure)
   :config
-  (require 'eglot-fsharp)
-  (setq eglot-fsharp-server-install-dir nil)
+  ;; Register fsautocomplete as the eglot server for fsharp-mode
+  (add-to-list 'eglot-server-programs
+               '(fsharp-mode . ("fsautocomplete" "--adaptive-lsp-server-enabled")))
   ;; Use fsi-mcp-server as FSI backend — shares the session with Claude Code via MCP
   (setq inferior-fsharp-program
         "dotnet run --project /home/eugen/tools/fsi-mcp-server/server"))
 
-;; Fix fsautocomplete path for TRAMP/Podman containers
-;; eglot-fsharp expands ~ to the local home, but in the container
-;; fsautocomplete lives under /home/developer/.dotnet/tools/
+;; Podman container: override inferior-fsharp-program path
 ;; NOTE: tramp-direct-async-process must be nil (default) — setting it
 ;; to t breaks stdin forwarding for Podman, causing eglot LSP timeouts.
 (connection-local-set-profile-variables
  'podman-fsharp-profile
- '((eglot-fsharp-server-path . "/home/developer/.dotnet/tools/")
-   (inferior-fsharp-program . "dotnet run --project /home/developer/tools/fsi-mcp-server/server")))
+ '((inferior-fsharp-program . "dotnet run --project /home/developer/tools/fsi-mcp-server/server")))
 
 (connection-local-set-profiles
  '(:application tramp :protocol "podman")
