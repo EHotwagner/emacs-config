@@ -89,25 +89,19 @@
                  `(fsharp-mode . ,(lambda (interactive project)
                                     (if (file-remote-p (project-root project))
                                         '("fsautocomplete-lsp")
-                                      '("fsautocomplete" "--adaptive-lsp-server-enabled"))))))
-  ;; Use fsi-mcp-server as FSI backend — shares the session with Claude Code via MCP
-  (setq inferior-fsharp-program
-        "dotnet run --project /home/eugen/tools/fsi-mcp-server/server"))
+                                      '("fsautocomplete" "--adaptive-lsp-server-enabled")))))))
 
-;; Podman container: add dotnet tools to TRAMP remote path and fix FSI path
+;; FSI via MCP server — shares the FSI session with Claude Code
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(require 'fsi-mcp)
+(setq fsi-mcp-host "127.0.0.1")
+(add-hook 'fsharp-mode-hook #'fsi-mcp-mode)
+
+;; Podman container: add dotnet tools to TRAMP remote path
 ;; NOTE: tramp-direct-async-process must be nil (default) — setting it
 ;; to t breaks stdin forwarding for Podman, causing eglot LSP timeouts.
 (with-eval-after-load 'tramp
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
-
-
-(connection-local-set-profile-variables
- 'podman-fsharp-profile
- '((inferior-fsharp-program . "dotnet run --project /home/developer/tools/fsi-mcp-server/server")))
-
-(connection-local-set-profiles
- '(:application tramp :protocol "podman")
- 'podman-fsharp-profile)
 
 ;; Install vterm (terminal backend for claude-code-ide)
 (use-package vterm

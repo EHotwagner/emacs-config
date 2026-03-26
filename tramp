@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <26/03/26 16:44:39 ~/.config/emacs/tramp>
+;; -*- emacs-lisp -*- <26/03/26 17:43:00 ~/.config/emacs/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; Run `M-x tramp-cleanup-all-connections' instead.
 
@@ -7,20 +7,11 @@
  ((tramp-file-name "podman" nil nil "emacs-dev" nil nil nil)
   ("null-device" "/dev/null") ("uname" "Linux 6.19.9-arch1-1")
   ("locale" "LC_ALL=C.utf8") ("test" "test") ("file-exists" "test -e")
-  ("remote-path"
-   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin"
-    "/usr/local/sbin"))
-  ("pipe-buf" 4096) ("remote-shell" "/bin/sh") ("~" "/home/developer")
-  ("stat" "env QUOTING_STYLE=locale \\stat") ("id" "/bin/id")
-  ("uid-integer" 1000) ("uid-string" "developer") ("gid-integer" 1000)
+  ("pipe-buf" 4096) ("remote-shell" "/bin/sh")
+  ("stat" "env QUOTING_STYLE=locale \\stat") ("readlink" "\\readlink")
+  ("id" "/usr/sbin/id") ("uid-integer" 1000)
+  ("uid-string" "developer") ("gid-integer" 1000)
   ("gid-string" "developer") ("groups-integer" (1000))
   ("groups-string" ("developer")) ("case-insensitive" nil)
-  ("readlink" "\\readlink") ("ls" "/usr/sbin/ls --color=never")
-  ("ls--dired" "--dired")
-  ("ls--quoting-style=literal --show-control-chars"
-   "--quoting-style=literal --show-control-chars")
-  ("df-blocksize" 1)
-  ("df" "\\df --block-size=1 --output=size,used,avail")
-  ("perl-file-spec" t) ("perl-cwd-realpath" t) ("perl" "\\perl")
-  ("bzr" nil) ("git" "\\git") ("hg" nil)
-  ("mknod-or-mkfifo" "mknod %s p")))
+  ("~" "/home/developer") ("bzr" nil) ("git" "\\git") ("hg" nil)
+  ("ln" "\\ln")))
