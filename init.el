@@ -83,15 +83,24 @@
   :hook (fsharp-mode . eglot-ensure)
   :config
   ;; Register fsautocomplete as the eglot server for fsharp-mode
-  (add-to-list 'eglot-server-programs
-               '(fsharp-mode . ("fsautocomplete" "--adaptive-lsp-server-enabled")))
+  ;; Use fsautocomplete-lsp wrapper for remote (TRAMP) to fix \r\n headers
+  (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs
+                 `(fsharp-mode . ,(lambda (interactive project)
+                                    (if (file-remote-p (project-root project))
+                                        '("fsautocomplete-lsp")
+                                      '("fsautocomplete" "--adaptive-lsp-server-enabled"))))))
   ;; Use fsi-mcp-server as FSI backend — shares the session with Claude Code via MCP
   (setq inferior-fsharp-program
         "dotnet run --project /home/eugen/tools/fsi-mcp-server/server"))
 
-;; Podman container: override inferior-fsharp-program path
+;; Podman container: add dotnet tools to TRAMP remote path and fix FSI path
 ;; NOTE: tramp-direct-async-process must be nil (default) — setting it
 ;; to t breaks stdin forwarding for Podman, causing eglot LSP timeouts.
+(with-eval-after-load 'tramp
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
+
+
 (connection-local-set-profile-variables
  'podman-fsharp-profile
  '((inferior-fsharp-program . "dotnet run --project /home/developer/tools/fsi-mcp-server/server")))
