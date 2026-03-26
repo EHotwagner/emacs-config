@@ -83,7 +83,7 @@
   :hook (fsharp-mode . eglot-ensure)
   :config
   ;; Register fsautocomplete as the eglot server for fsharp-mode
-  ;; Use fsautocomplete-lsp wrapper for remote (TRAMP) to fix \r\n headers
+  ;; TRAMP strips \r\n from LSP headers; fsautocomplete-lsp wrapper re-adds them
   (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs
                  `(fsharp-mode . ,(lambda (interactive project)

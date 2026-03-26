@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <26/03/26 16:17:01 ~/.config/emacs/tramp>
+;; -*- emacs-lisp -*- <26/03/26 16:44:39 ~/.config/emacs/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; Run `M-x tramp-cleanup-all-connections' instead.
 
@@ -14,4 +14,13 @@
   ("stat" "env QUOTING_STYLE=locale \\stat") ("id" "/bin/id")
   ("uid-integer" 1000) ("uid-string" "developer") ("gid-integer" 1000)
   ("gid-string" "developer") ("groups-integer" (1000))
-  ("groups-string" ("developer")) ("case-insensitive" nil)))
+  ("groups-string" ("developer")) ("case-insensitive" nil)
+  ("readlink" "\\readlink") ("ls" "/usr/sbin/ls --color=never")
+  ("ls--dired" "--dired")
+  ("ls--quoting-style=literal --show-control-chars"
+   "--quoting-style=literal --show-control-chars")
+  ("df-blocksize" 1)
+  ("df" "\\df --block-size=1 --output=size,used,avail")
+  ("perl-file-spec" t) ("perl-cwd-realpath" t) ("perl" "\\perl")
+  ("bzr" nil) ("git" "\\git") ("hg" nil)
+  ("mknod-or-mkfifo" "mknod %s p")))
