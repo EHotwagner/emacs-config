@@ -1,5 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 
+;; Disable audible bell (causes HDMI signal drops)
+(setq ring-bell-function 'ignore)
+
 ;; Font size
 (set-face-attribute 'default nil :height 140)
 
