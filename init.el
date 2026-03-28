@@ -28,6 +28,10 @@
 (setq global-auto-revert-non-file-buffers t)
 (global-auto-revert-mode 1)
 
+;; TRAMP buffers: file-notify doesn't work over Podman, fall back to polling
+(setq auto-revert-remote-files t)
+(setq auto-revert-use-notify nil)
+
 ;; Package archives
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
