@@ -269,17 +269,17 @@ Responses to JSON-RPC requests arrive as SSE events."
 (defun fsi-mcp--get-event-count ()
   "Get current event count from server status."
   (let ((status (fsi-mcp--call-tool "get_fsi_status" (make-hash-table))))
-    (when (and status (string-match "event count: \\([0-9]+\\)" status))
+    (when (and status (string-match "Event Statistics: \\([0-9]+\\)" status))
       (string-to-number (match-string 1 status)))))
 
 (defun fsi-mcp--poll-for-output (code prev-count retries)
   "Poll for new FSI output after sending CODE.
 Only shows events newer than PREV-COUNT."
   (let* ((cur-count (or (fsi-mcp--get-event-count) 0))
-         (delta (max 1 (- cur-count prev-count))))
-    (if (or (> delta 0) (<= retries 0))
+         (new-events (- cur-count prev-count)))
+    (if (or (> new-events 0) (<= retries 0))
         (let ((events (fsi-mcp--call-tool "get_recent_fsi_events"
-                                          `(("count" . ,delta)))))
+                                          `(("count" . ,(max 1 new-events))))))
           (when (and events (not (string-empty-p events)))
             (fsi-mcp--append-output events code)))
       (run-at-time fsi-mcp-poll-interval nil
