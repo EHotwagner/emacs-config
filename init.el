@@ -155,6 +155,13 @@
   (claude-code-mode)
   :bind-keymap ("C-c c" . claude-code-command-map))
 
+;; MCP Server — expose Emacs to Claude Code via Unix socket
+(use-package mcp-server
+  :vc (:url "https://github.com/rhblind/emacs-mcp-server" :rev :newest)
+  :config
+  (setq mcp-server-socket-directory "~/.emacs.d/")
+  (add-hook 'emacs-startup-hook #'mcp-server-start-unix))
+
 ;; Startup buffers
 (add-hook 'emacs-startup-hook
           (lambda ()
@@ -240,7 +247,9 @@
  '(custom-safe-themes
    '("8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098"
      default))
- '(package-selected-packages nil))
+ '(package-selected-packages nil)
+ '(package-vc-selected-packages
+   '((mcp-server :url "https://github.com/rhblind/emacs-mcp-server"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
