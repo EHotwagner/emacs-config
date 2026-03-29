@@ -184,24 +184,36 @@
 
 ;; Open files in running Podman containers via TRAMP
 (defun podman-find-file ()
-  "Find file in a running Podman container."
+  "Find file in a running Podman container.
+If already in a TRAMP podman buffer, open dired at that container's root."
   (interactive)
-  (let* ((containers (split-string
-                      (shell-command-to-string
-                       "podman ps --format '{{.Names}}'") "\n" t))
-         (container (completing-read "Container: " containers)))
+  (let* ((tramp-info (and (tramp-tramp-file-p default-directory)
+                          (tramp-dissect-file-name default-directory)))
+         (container (if (and tramp-info
+                             (string= (tramp-file-name-method tramp-info) "podman"))
+                        (tramp-file-name-host tramp-info)
+                      (completing-read "Container: "
+                        (split-string
+                         (shell-command-to-string
+                          "podman ps --format '{{.Names}}'") "\n" t)))))
     (find-file (format "/podman:%s:/" container))))
 
 (global-set-key (kbd "C-c p") #'podman-find-file)
 
 ;; Open vterm session in a running Podman container
 (defun podman-vterm ()
-  "Open vterm in a running Podman container."
+  "Open vterm in a running Podman container.
+If already in a TRAMP podman buffer, use that container."
   (interactive)
-  (let* ((containers (split-string
-                      (shell-command-to-string
-                       "podman ps --format '{{.Names}}'") "\n" t))
-         (container (completing-read "Container: " containers)))
+  (let* ((tramp-info (and (tramp-tramp-file-p default-directory)
+                          (tramp-dissect-file-name default-directory)))
+         (container (if (and tramp-info
+                             (string= (tramp-file-name-method tramp-info) "podman"))
+                        (tramp-file-name-host tramp-info)
+                      (completing-read "Container: "
+                        (split-string
+                         (shell-command-to-string
+                          "podman ps --format '{{.Names}}'") "\n" t)))))
     (vterm (format "*podman:%s*" container))
     (vterm-send-string (format "podman exec -it %s /bin/bash\n" container))))
 
