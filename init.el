@@ -1,18 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-;; ── Startup performance ────────────────────────────────────────────────────────
-
-;; Raise GC threshold during init and normal use (LSP + magit generate lots of garbage)
-(setq gc-cons-threshold (* 100 1024 1024))  ; 100MB
-(add-function :after after-focus-change-function
-              (lambda () (unless (frame-focus-state) (garbage-collect))))
-
-;; Disable file-name-handler-alist during init (re-enable after startup)
-(defvar default-file-name-handler-alist file-name-handler-alist)
-(setq file-name-handler-alist nil)
-(add-hook 'emacs-startup-hook
-          (lambda () (setq file-name-handler-alist default-file-name-handler-alist)))
-
 ;; Disable audible bell (causes HDMI signal drops)
 (setq ring-bell-function 'ignore)
 
@@ -42,12 +29,8 @@
 (global-auto-revert-mode 1)
 
 ;; TRAMP buffers: file-notify doesn't work over Podman, fall back to polling
-;; Only disable notify for remote files — local inotify works fine
 (setq auto-revert-remote-files t)
-(add-hook 'find-file-hook
-          (lambda ()
-            (when (file-remote-p default-directory)
-              (setq-local auto-revert-use-notify nil))))
+(setq auto-revert-use-notify nil)
 
 ;; Package archives
 (require 'package)
