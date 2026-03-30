@@ -154,6 +154,8 @@
   (dolist (app (directory-files (expand-file-name "app" eaf-dir) t "^[^.]"))
     (when (file-directory-p app)
       (add-to-list 'load-path app))))
+(setq eaf-find-file-advisor-enable nil
+      eaf-dired-advisor-enable nil)
 (require 'eaf)
 (require 'eaf-browser)
 (require 'eaf-pdf-viewer)
@@ -167,7 +169,6 @@
 (require 'eaf-org-previewer)
 (require 'eaf-camera)
 (require 'eaf-git)
-(require 'eaf-file-manager)
 (require 'eaf-mindmap)
 (require 'eaf-mind-elixir)
 (require 'eaf-system-monitor)
