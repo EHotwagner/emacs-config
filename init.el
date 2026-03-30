@@ -159,7 +159,7 @@
 (use-package mcp-server
   :vc (:url "https://github.com/rhblind/emacs-mcp-server" :rev :newest)
   :config
-  (setq mcp-server-socket-directory "~/.emacs.d/")
+  (setq mcp-server-socket-directory "~/.config/emacs/")
   (add-hook 'emacs-startup-hook #'mcp-server-start-unix))
 
 ;; Startup buffers

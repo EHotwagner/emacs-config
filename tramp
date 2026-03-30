@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-;; -*- emacs-lisp -*- <26/03/29 22:34:21 ~/.emacs.d/tramp>
-=======
-;; -*- emacs-lisp -*- <26/03/30 07:55:34 ~/.config/emacs/tramp>
->>>>>>> 8ea6133 (auto-sync 2026-03-30T08:26:03+02:00)
+;; -*- emacs-lisp -*- <26/03/30 08:49:25 ~/.config/emacs/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; Run `M-x tramp-cleanup-all-connections' instead.
 
@@ -18,11 +14,4 @@
   ("gid-string" "developer") ("groups-integer" (1000))
   ("groups-string" ("developer")) ("case-insensitive" nil)
   ("~" "/home/developer") ("bzr" nil) ("git" "\\git") ("hg" nil)
-  ("ln" "\\ln") ("ls" "/usr/sbin/ls --color=never")
-  ("ls--dired" "--dired")
-  ("ls--quoting-style=literal --show-control-chars"
-   "--quoting-style=literal --show-control-chars")
-  ("df-blocksize" 1)
-  ("df" "\\df --block-size=1 --output=size,used,avail")
-  ("perl-file-spec" t) ("perl-cwd-realpath" t) ("perl" "\\perl")
-  ("mknod-or-mkfifo" "mknod %s p") ("dev-tty" t)))
+  ("ln" "\\ln")))
