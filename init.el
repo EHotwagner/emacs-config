@@ -1,5 +1,18 @@
 ;;; -*- lexical-binding: t -*-
 
+;; ── Startup performance ────────────────────────────────────────────────────────
+
+;; Raise GC threshold during init and normal use (LSP + magit generate lots of garbage)
+(setq gc-cons-threshold (* 100 1024 1024))  ; 100MB
+(add-function :after after-focus-change-function
+              (lambda () (unless (frame-focus-state) (garbage-collect))))
+
+;; Disable file-name-handler-alist during init (re-enable after startup)
+(defvar default-file-name-handler-alist file-name-handler-alist)
+(setq file-name-handler-alist nil)
+(add-hook 'emacs-startup-hook
+          (lambda () (setq file-name-handler-alist default-file-name-handler-alist)))
+
 ;; Disable audible bell (causes HDMI signal drops)
 (setq ring-bell-function 'ignore)
 
@@ -29,8 +42,12 @@
 (global-auto-revert-mode 1)
 
 ;; TRAMP buffers: file-notify doesn't work over Podman, fall back to polling
+;; Only disable notify for remote files — local inotify works fine
 (setq auto-revert-remote-files t)
-(setq auto-revert-use-notify nil)
+(add-hook 'find-file-hook
+          (lambda ()
+            (when (file-remote-p default-directory)
+              (setq-local auto-revert-use-notify nil))))
 
 ;; Package archives
 (require 'package)
@@ -55,12 +72,14 @@
          ("C-s" . consult-line)
          ("M-g g" . consult-goto-line)))
 
+;; Marginalia - annotations for completion candidates
+(use-package marginalia
+  :ensure t
+  :init
+  (marginalia-mode))
+
 ;; Theme packages
 (use-package doom-themes :ensure t)
-(use-package ef-themes :ensure t)
-
-;; Load theme early (before dashboard and other UI packages)
-(load-theme 'manoj-dark t)
 
 ;; Dashboard - startup screen with recent files and projects
 (use-package dashboard
@@ -74,11 +93,13 @@
 
 ;; Install org-mode
 (use-package org
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Install magit
 (use-package magit
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Install fsharp-mode with LSP support via eglot
 (use-package fsharp-mode
@@ -134,7 +155,8 @@
 
 ;; Dockerfile/Containerfile editing
 (use-package dockerfile-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Install claude-code-ide
 (use-package claude-code-ide
@@ -171,16 +193,20 @@
               (when-let ((buf (car (claude-code--find-claude-buffers-for-directory default-directory))))
                 (with-current-buffer buf
                   (rename-buffer "*sysadmin*"))))
-            ;; vterm in emacs-dev container → *projects*
-            ;; Start container if not running
-            (unless (string-match-p "emacs-dev"
-                      (shell-command-to-string "podman ps --format '{{.Names}}'"))
-              (shell-command "podman start emacs-dev"))
-            (vterm "*projects*")
-            (vterm-send-string "podman exec -it emacs-dev bash -c 'cd /home/developer/Projects && exec bash'\n")
-            ;; cterm - general terminal in emacs-dev container
-            (vterm "*cterm*")
-            (vterm-send-string "podman exec -it emacs-dev bash\n")))
+            ;; Start emacs-dev container asynchronously, then open vterms once ready
+            (set-process-sentinel
+             (start-process "podman-ensure" nil "bash" "-c"
+                            "podman ps --format '{{.Names}}' | grep -q emacs-dev || podman start emacs-dev")
+             (lambda (_proc event)
+               (when (string-match-p "finished" event)
+                 (run-at-time 0 nil
+                   (lambda ()
+                     ;; vterm in emacs-dev container → *projects*
+                     (vterm "*projects*")
+                     (vterm-send-string "podman exec -it emacs-dev bash -c 'cd /home/developer/Projects && exec bash'\n")
+                     ;; cterm - general terminal in emacs-dev container
+                     (vterm "*cterm*")
+                     (vterm-send-string "podman exec -it emacs-dev bash\n"))))))))
 
 ;; Open files in running Podman containers via TRAMP
 (defun podman-find-file ()
