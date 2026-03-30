@@ -144,7 +144,9 @@
     (setq-local dnd-protocol-alist
                 (cons '("^file:" . vterm-dnd-send-file-path)
                       dnd-protocol-alist)))
-  (add-hook 'vterm-mode-hook #'vterm-setup-dnd))
+  (add-hook 'vterm-mode-hook #'vterm-setup-dnd)
+  (setq vterm-tramp-shells '(("ssh" login-shell) ("scp" login-shell)
+                              ("docker" "/usr/bin/nu") ("podman" "/usr/bin/nu"))))
 
 ;; Docker/Podman management
 (use-package docker
@@ -203,10 +205,10 @@
                    (lambda ()
                      ;; vterm in emacs-dev container → *projects*
                      (vterm "*projects*")
-                     (vterm-send-string "podman exec -it emacs-dev bash -c 'cd /home/developer/Projects && exec bash'\n")
+                     (vterm-send-string "podman exec -it emacs-dev nu -c 'cd /home/developer/Projects; nu'\n")
                      ;; cterm - general terminal in emacs-dev container
                      (vterm "*cterm*")
-                     (vterm-send-string "podman exec -it emacs-dev bash\n"))))))))
+                     (vterm-send-string "podman exec -it emacs-dev /usr/bin/nu\n"))))))))
 
 ;; Open files in running Podman containers via TRAMP
 (defun podman-find-file ()
@@ -241,7 +243,7 @@ If already in a TRAMP podman buffer, use that container."
                          (shell-command-to-string
                           "podman ps --format '{{.Names}}'") "\n" t)))))
     (vterm (format "*podman:%s*" container))
-    (vterm-send-string (format "podman exec -it %s /bin/bash\n" container))))
+    (vterm-send-string (format "podman exec -it %s /usr/bin/nu\n" container))))
 
 (global-set-key (kbd "C-c v") #'podman-vterm)
 
