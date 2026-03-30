@@ -255,7 +255,7 @@ If already in a TRAMP podman buffer, use that container."
             (shell-command-to-string "podman ps --format '{{.Names}}'"))
     (shell-command "podman start emacs-dev"))
   (vterm "*cterm*")
-  (vterm-send-string "podman exec -it emacs-dev bash\n"))
+  (vterm-send-string "podman exec -it emacs-dev /usr/bin/nu\n"))
 
 (global-set-key (kbd "C-c t") #'cterm)
 
