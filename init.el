@@ -1,10 +1,36 @@
 ;;; -*- lexical-binding: t -*-
 
+;; ── Post-init GC ───────────────────────────────────────────────────────────────
+;; early-init.el sets gc-cons-threshold to most-positive-fixnum; settle to 50MB
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 50 1024 1024))
+            (run-with-idle-timer 5 t #'garbage-collect)))
+
+;; ── General settings ───────────────────────────────────────────────────────────
+
 ;; Disable audible bell (causes HDMI signal drops)
 (setq ring-bell-function 'ignore)
 
 ;; Font size
 (set-face-attribute 'default nil :height 140)
+
+;; Column number in modeline
+(column-number-mode 1)
+
+;; Remember minibuffer history and cursor positions across sessions
+(savehist-mode 1)
+(save-place-mode 1)
+
+;; Centralize backup, auto-save, and lock files
+(setq backup-directory-alist `(("." . ,(expand-file-name "backups/" user-emacs-directory))))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "auto-saves/" user-emacs-directory) t)))
+(setq create-lockfiles nil)
+
+;; Separate file for Custom so it doesn't pollute init.el
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file) (load custom-file))
 
 ;; Use ibuffer instead of default buffer list
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -29,12 +55,18 @@
 (global-auto-revert-mode 1)
 
 ;; TRAMP buffers: file-notify doesn't work over Podman, fall back to polling
+;; Keep inotify enabled for local files — only disable for remote
 (setq auto-revert-remote-files t)
-(setq auto-revert-use-notify nil)
+(setq auto-revert-use-notify t)
+(add-hook 'find-file-hook
+          (lambda ()
+            (when (file-remote-p default-directory)
+              (setq-local auto-revert-use-notify nil))))
 
-;; Package archives
+;; Package archives (early-init.el defers package init, so initialize here)
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
 ;; Vertico - vertical completion UI
 (use-package vertico
@@ -61,8 +93,25 @@
   :init
   (marginalia-mode))
 
+;; Which-key - show available keybindings after prefix
+(use-package which-key
+  :ensure t
+  :init
+  (which-key-mode))
+
+;; Corfu - in-buffer completion popup (uses eglot's completion-at-point)
+(use-package corfu
+  :ensure t
+  :init
+  (global-corfu-mode)
+  :config
+  (setq corfu-auto t))
+
 ;; Theme packages
-(use-package doom-themes :ensure t)
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-dracula t))
 
 ;; Dashboard - startup screen with recent files and projects
 (use-package dashboard
@@ -131,7 +180,7 @@
   (setq vterm-tramp-shells '(("ssh" login-shell) ("scp" login-shell)
                               ("docker" "/usr/bin/nu") ("podman" "/usr/bin/nu"))))
 
-;; EAF - Emacs Application Framework
+;; EAF - Emacs Application Framework (deferred until first use)
 (let ((eaf-dir (expand-file-name "site-lisp/emacs-application-framework" user-emacs-directory)))
   (add-to-list 'load-path eaf-dir)
   (dolist (app (directory-files (expand-file-name "app" eaf-dir) t "^[^.]"))
@@ -139,30 +188,33 @@
       (add-to-list 'load-path app))))
 (setq eaf-find-file-advisor-enable nil
       eaf-dired-advisor-enable nil)
-(require 'eaf)
-(require 'eaf-browser)
-(require 'eaf-pdf-viewer)
-(require 'eaf-music-player)
-(require 'eaf-video-player)
-(require 'eaf-js-video-player)
-(require 'eaf-image-viewer)
-(require 'eaf-rss-reader)
-(require 'eaf-pyqterminal)
-(require 'eaf-markdown-previewer)
-(require 'eaf-org-previewer)
-(require 'eaf-camera)
-(require 'eaf-git)
-(require 'eaf-mindmap)
-(require 'eaf-mind-elixir)
-(require 'eaf-system-monitor)
-(require 'eaf-file-browser)
-(require 'eaf-file-sender)
-(require 'eaf-airshare)
-(require 'eaf-jupyter)
-(require 'eaf-markmap)
-(require 'eaf-map)
-(require 'eaf-video-editor)
-(require 'eaf-2048)
+(autoload 'eaf-open "eaf" nil t)
+(autoload 'eaf-open-browser "eaf" nil t)
+(autoload 'eaf-open-url "eaf" nil t)
+(with-eval-after-load 'eaf
+  (require 'eaf-browser)
+  (require 'eaf-pdf-viewer)
+  (require 'eaf-music-player)
+  (require 'eaf-video-player)
+  (require 'eaf-js-video-player)
+  (require 'eaf-image-viewer)
+  (require 'eaf-rss-reader)
+  (require 'eaf-pyqterminal)
+  (require 'eaf-markdown-previewer)
+  (require 'eaf-org-previewer)
+  (require 'eaf-camera)
+  (require 'eaf-git)
+  (require 'eaf-mindmap)
+  (require 'eaf-mind-elixir)
+  (require 'eaf-system-monitor)
+  (require 'eaf-file-browser)
+  (require 'eaf-file-sender)
+  (require 'eaf-airshare)
+  (require 'eaf-jupyter)
+  (require 'eaf-markmap)
+  (require 'eaf-map)
+  (require 'eaf-video-editor)
+  (require 'eaf-2048))
 (global-set-key (kbd "C-c w") #'eaf-open-browser)
 
 ;; Docker/Podman management
@@ -217,15 +269,16 @@
              (start-process "podman-ensure" nil "bash" "-c"
                             "podman ps --format '{{.Names}}' | grep -q emacs-dev || podman start emacs-dev")
              (lambda (_proc event)
-               (when (string-match-p "finished" event)
-                 (run-at-time 0 nil
-                   (lambda ()
-                     ;; vterm in emacs-dev container → *projects*
-                     (vterm "*projects*")
-                     (vterm-send-string "podman exec -it emacs-dev nu -c 'cd /home/developer/Projects; nu'\n")
-                     ;; cterm - general terminal in emacs-dev container
-                     (vterm "*cterm*")
-                     (vterm-send-string "podman exec -it emacs-dev /usr/bin/nu\n"))))))))
+               (if (string-match-p "finished" event)
+                   (run-at-time 0 nil
+                     (lambda ()
+                       ;; vterm in emacs-dev container → *projects*
+                       (vterm "*projects*")
+                       (vterm-send-string "podman exec -it emacs-dev nu -c 'cd /home/developer/Projects; nu'\n")
+                       ;; cterm - general terminal in emacs-dev container
+                       (vterm "*cterm*")
+                       (vterm-send-string "podman exec -it emacs-dev /usr/bin/nu\n")))
+                 (message "podman-ensure failed: %s" (string-trim event)))))))
 
 ;; Open files in running Podman containers via TRAMP
 (defun podman-find-file ()
@@ -294,22 +347,3 @@ If already in a TRAMP podman buffer, use that container."
          ("C-c m p" . markdown-live-preview-mode)
          ("C-c m e" . markdown-export)
          ("C-c m o" . markdown-open)))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(doom-dracula))
- '(custom-safe-themes
-   '("8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098"
-     default))
- '(package-selected-packages nil)
- '(package-vc-selected-packages
-   '((mcp-server :url "https://github.com/rhblind/emacs-mcp-server"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
