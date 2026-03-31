@@ -113,6 +113,13 @@
   :config
   (load-theme 'doom-dracula t))
 
+;; Window dividers — clear borders between buffers
+(setq window-divider-default-right-width 6
+      window-divider-default-bottom-width 6
+      window-divider-default-places t)
+(window-divider-mode 1)
+(set-face-foreground 'window-divider "#6272a4")
+
 ;; Dashboard - startup screen with recent files and projects
 (use-package dashboard
   :ensure t
