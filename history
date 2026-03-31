@@ -7,4 +7,3 @@
 (setq buffer-name-history '("*shell*"))
 (setq file-name-history '("/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx" "~/"))
 (setq extended-command-history '("docker-volumes" "shell" "bash-ts-mode" "shell" "clipboard-kill-ring-save"))
-(setq tablist-named-filter 'nil)
