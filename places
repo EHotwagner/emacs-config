@@ -1,10 +1,10 @@
 ;;; -*- coding: utf-8; mode: lisp-data -*-
-(("/podman:emacs-dev:/home/developer/projects/PScriptingV2/scratch/"
+(("/podman:emacs-dev:/" (dired-filename . "/podman:emacs-dev:/home"))
+ ("/podman:emacs-dev:/home/developer/projects/PScriptingV2/scratch/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/PScriptingV2/scratch/playground.fsx"))
  ("/podman:emacs-dev:/home/developer/projects/PScriptingV2/scratch/playground.fsx"
   . 531)
- ("/podman:emacs-dev:/" (dired-filename . "/podman:emacs-dev:/boot"))
  ("/home/eugen/" (dired-filename . "/home/eugen/Documents"))
  ("/home/eugen/Documents/"
   (dired-filename . "/home/eugen/Documents/Projects"))

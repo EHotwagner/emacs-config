@@ -3,8 +3,7 @@
 
 (setq savehist-minibuffer-history-variables '(minibuffer-history consult--buffer-history buffer-name-history file-name-history extended-command-history))
 (setq minibuffer-history '("emacs-dev"))
-(setq consult--buffer-history '("/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx􀀃"))
+(setq consult--buffer-history '("*projects*􀀀" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx􀀃"))
 (setq buffer-name-history '("*shell*"))
 (setq file-name-history '("/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx" "~/"))
-(setq extended-command-history '("docker-volumes" "shell" "bash-ts-mode" "shell" "clipboard-kill-ring-save"))
-(setq tablist-named-filter 'nil)
+(setq extended-command-history '("clipboard-kill-ring-save" "docker-volumes" "shell" "bash-ts-mode" "shell" "clipboard-kill-ring-save"))
