@@ -5,5 +5,5 @@
 (setq minibuffer-history '("emacs-dev"))
 (setq consult--buffer-history '("*sysadmin*􀀀" "*projects*􀀀" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx􀀃"))
 (setq buffer-name-history '("*scratch*" "*dashboard*" "*shell*"))
-(setq file-name-history '("/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx" "~/"))
-(setq extended-command-history '("tool-bar-mode" "clipboard-kill-ring-save" "docker-volumes" "shell" "bash-ts-mode" "shell" "clipboard-kill-ring-save"))
+(setq file-name-history '("~/" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx" "~/"))
+(setq extended-command-history '("clipboard-kill-ring-save" "shell" "bash-ts-mode" "shell" "tool-bar-mode" "clipboard-kill-ring-save" "docker-volumes" "shell" "bash-ts-mode" "shell" "clipboard-kill-ring-save"))

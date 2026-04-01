@@ -1,12 +1,12 @@
 ;;; -*- coding: utf-8; mode: lisp-data -*-
-(("/podman:emacs-dev:/" (dired-filename . "/podman:emacs-dev:/home"))
+(("/home/eugen/" (dired-filename . "/home/eugen/Documents"))
+ ("/home/eugen/Documents/"
+  (dired-filename . "/home/eugen/Documents/Projects"))
+ ("/home/eugen/Documents/Projects/"
+  (dired-filename . "/home/eugen/Documents/Projects/SystemAdmin"))
+ ("/podman:emacs-dev:/" (dired-filename . "/podman:emacs-dev:/home"))
  ("/podman:emacs-dev:/home/developer/projects/PScriptingV2/scratch/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/PScriptingV2/scratch/playground.fsx"))
  ("/podman:emacs-dev:/home/developer/projects/PScriptingV2/scratch/playground.fsx"
-  . 531)
- ("/home/eugen/" (dired-filename . "/home/eugen/Documents"))
- ("/home/eugen/Documents/"
-  (dired-filename . "/home/eugen/Documents/Projects"))
- ("/home/eugen/Documents/Projects/"
-  (dired-filename . "/home/eugen/Documents/Projects/SystemAdmin")))
+  . 531))

@@ -40,6 +40,7 @@
          ("Magit" (name . "^magit"))
          ("Org" (mode . org-mode))
          ("F#" (mode . fsharp-mode))
+         ("Nushell" (mode . nushell-mode))
          ("Markdown" (mode . markdown-mode))
          ("Terminal" (mode . vterm-mode))
          ("Emacs" (or (name . "^\\*") (name . "^\\s-"))))))
@@ -189,11 +190,15 @@
 
 ;; EAF - Emacs Application Framework (deferred until first use)
 (let ((eaf-dir (expand-file-name "site-lisp/emacs-application-framework" user-emacs-directory)))
-  (add-to-list 'load-path eaf-dir)
-  (dolist (app (directory-files (expand-file-name "app" eaf-dir) t "^[^.]"))
-    (when (file-directory-p app)
-      (add-to-list 'load-path app))))
-(setq eaf-find-file-advisor-enable nil
+  (when (file-directory-p eaf-dir)
+    (add-to-list 'load-path eaf-dir)
+    (let ((app-dir (expand-file-name "app" eaf-dir)))
+      (when (file-directory-p app-dir)
+        (dolist (app (directory-files app-dir t "^[^.]"))
+          (when (file-directory-p app)
+            (add-to-list 'load-path app)))))))
+(setq eaf-python-command (expand-file-name "site-lisp/emacs-application-framework/.venv/bin/python" user-emacs-directory)
+      eaf-find-file-advisor-enable nil
       eaf-dired-advisor-enable nil)
 (autoload 'eaf-open "eaf" nil t)
 (autoload 'eaf-open-browser "eaf" nil t)
@@ -235,6 +240,11 @@
 (use-package dockerfile-mode
   :ensure t
   :defer t)
+
+;; Nushell script editing
+(use-package nushell-mode
+  :vc (:url "https://github.com/mrkkrp/nushell-mode" :rev :newest)
+  :mode ("\\.nu\\'" . nushell-mode))
 
 ;; Install claude-code-ide
 (use-package claude-code-ide
