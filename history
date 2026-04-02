@@ -3,10 +3,10 @@
 
 (setq savehist-minibuffer-history-variables '(minibuffer-history consult--buffer-history buffer-name-history file-name-history extended-command-history))
 (setq minibuffer-history '("emacs-dev"))
-(setq consult--buffer-history '("*sysadmin*􀀀" "*projects*􀀀" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx􀀃"))
-(setq buffer-name-history '(
+(setq consult--buffer-history '("SystemAdmin􀀄" "system1" "SystemAdmin􀀄" "*sysadmin*􀀀" "*projects*􀀀" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx􀀃"))
+(setq buffer-name-history '("*shell*" "system1" "*shell*" "*Ibuffer*" "*shell*"
 ;;;  #<killed buffer>
  "*scratch*" "*dashboard*" "*shell*"))
 (setq file-name-history '("~/" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx" "~/"))
-(setq extended-command-history '("tool-bar-mode" "clipboard-kill-ring-save" "shell" "bash-ts-mode" "shell" "tool-bar-mode" "clipboard-kill-ring-save" "docker-volumes" "shell" "bash-ts-mode" "shell" "clipboard-kill-ring-save"))
+(setq extended-command-history '("shell" "nushell-mode" "shell" "nushell-mode" "shell" "tool-bar-mode" "clipboard-kill-ring-save" "shell" "bash-ts-mode" "shell" "tool-bar-mode" "clipboard-kill-ring-save" "docker-volumes" "shell" "bash-ts-mode" "shell" "clipboard-kill-ring-save"))
 (setq tablist-named-filter 'nil)
