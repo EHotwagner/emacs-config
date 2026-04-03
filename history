@@ -7,3 +7,4 @@
 (setq buffer-name-history '("plan.md" "spec.md" "requirements.md" "spec.md" "SystemAdmin" "*dashboard*" "*shell*" "system1" "*shell*" "*Ibuffer*" "*shell*" "*scratch*" "*dashboard*" "*shell*"))
 (setq file-name-history '("~/Documents/Projects/SystemAdmin/" "~/" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx" "~/"))
 (setq extended-command-history '("tool-bar-mode" "dashboard-open" "shell" "nushell-mode" "shell" "nushell-mode" "shell" "tool-bar-mode" "clipboard-kill-ring-save" "shell" "bash-ts-mode" "shell" "tool-bar-mode" "clipboard-kill-ring-save" "docker-volumes" "shell" "bash-ts-mode" "shell" "clipboard-kill-ring-save"))
+(setq tablist-named-filter 'nil)
