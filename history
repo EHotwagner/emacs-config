@@ -3,8 +3,12 @@
 
 (setq savehist-minibuffer-history-variables '(minibuffer-history consult--buffer-history buffer-name-history file-name-history extended-command-history))
 (setq minibuffer-history '("emacs-dev"))
-(setq consult--buffer-history '("*podman:emacs-dev*􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*􀀀" "*podman:emacs-dev*<2>􀀀" "*Ibuffer*􀀀" "*podman:emacs-dev*􀀀" "*podman:emacs-dev*<2>􀀀" "SystemAdmin􀀄" "system1" "SystemAdmin􀀄" "*sysadmin*􀀀" "*projects*􀀀" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx􀀃"))
-(setq buffer-name-history '(
+(setq consult--buffer-history '("ScenarioTests.fs􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*􀀀" "*podman:emacs-dev*<2>􀀀" "*Ibuffer*􀀀" "*podman:emacs-dev*􀀀" "*podman:emacs-dev*<2>􀀀" "SystemAdmin􀀄" "system1" "SystemAdmin􀀄" "*sysadmin*􀀀" "*projects*􀀀" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx􀀃"))
+(setq buffer-name-history '("ScenarioTests.fs"
+;;;  #<killed buffer>
+
+;;;  #<buffer *sysadmin*>
+ "ScenarioTests.fs" "EventTests.fs" "CommandTests.fs"
 ;;;  #<buffer *podman:emacs-dev*>
 
 ;;;  #<buffer *sysadmin*>
