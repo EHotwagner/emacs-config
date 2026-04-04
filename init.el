@@ -185,6 +185,7 @@
                 (cons '("^file:" . vterm-dnd-send-file-path)
                       dnd-protocol-alist)))
   (add-hook 'vterm-mode-hook #'vterm-setup-dnd)
+  (setq vterm-shell "/usr/bin/nu")
   (setq vterm-tramp-shells '(("ssh" login-shell) ("scp" login-shell)
                               ("docker" "/usr/bin/nu") ("podman" "/usr/bin/nu"))))
 
