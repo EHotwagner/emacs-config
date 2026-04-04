@@ -1,5 +1,60 @@
 ;;; -*- coding: utf-8; mode: lisp-data -*-
-(("/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/001-native-proxy-bridge/checklists/"
+(("/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/009-client-unit-types/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/009-client-unit-types/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/specs"))
+ ("/home/eugen/" (dired-filename . "/home/eugen/Documents"))
+ ("/home/eugen/Documents/"
+  (dired-filename . "/home/eugen/Documents/Projects"))
+ ("/home/eugen/Documents/Projects/"
+  (dired-filename . "/home/eugen/Documents/Projects/SystemAdmin"))
+ ("/home/eugen/Documents/Projects/SystemAdmin/"
+  (dired-filename
+   . "/home/eugen/Documents/Projects/SystemAdmin/AnewLayoutStart.md"))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/009-client-unit-types/spec.md"
+  . 4143)
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/src/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/src/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/data/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/src/ArmAircraft.fs"
+  . 17328)
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/006-typed-bar-data/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/006-typed-bar-data/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/006-typed-bar-data/spec.md"
+  . 7381)
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/docs/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/docs/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/docs/research/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/docs/research/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/reports/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/reports/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/tools/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/tools/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/tools/generate-bar-data.fsx"
+  . 20240)
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/tests/integration/fsharp/ScenarioTests.fs"
+  . 3315)
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/tests/integration/fsharp/EventTests.fs"
+  . 7242)
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/tests/integration/fsharp/CommandTests.fs"
+  . 3190)
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/001-native-proxy-bridge/checklists/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/001-native-proxy-bridge/checklists/requirements.md"))
  ("/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/001-native-proxy-bridge/checklists/requirements.md"
@@ -17,20 +72,6 @@
  ("/podman:emacs-dev:/home/developer/projects/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/HighBarV2"))
- ("/podman:emacs-dev:/home/developer/projects/HighBarV2/"
-  (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/specs"))
- ("/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/"
-  (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/001-native-proxy-bridge"))
- ("/home/eugen/Documents/Projects/SystemAdmin/"
-  (dired-filename
-   . "/home/eugen/Documents/Projects/SystemAdmin/AnewLayoutStart.md"))
- ("/home/eugen/" (dired-filename . "/home/eugen/Documents"))
- ("/home/eugen/Documents/"
-  (dired-filename . "/home/eugen/Documents/Projects"))
- ("/home/eugen/Documents/Projects/"
-  (dired-filename . "/home/eugen/Documents/Projects/SystemAdmin"))
  ("/podman:emacs-dev:/home/developer/projects/PScriptingV2/scratch/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/PScriptingV2/scratch/playground.fsx"))
