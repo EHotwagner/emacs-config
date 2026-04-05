@@ -1,7 +1,53 @@
 ;;; -*- coding: utf-8; mode: lisp-data -*-
-(("/podman:emacs-dev:/home/developer/projects/HighBarV2/reports/testreports/"
+(("/podman:emacs-dev:/home/developer/projects/FSBarV1/scripts/examples/02-graphical-game.fsx"
+  . 209)
+ ("/podman:emacs-dev:/home/developer/projects/FSBarV1/reports/"
   (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/reports/testreports/.."))
+   . "/podman:emacs-dev:/home/developer/projects/FSBarV1/reports/bar-map-representations-for-fsharp-repl.md"))
+ ("/podman:emacs-dev:/home/developer/projects/FSBarV1/reports/bar-map-representations-for-fsharp-repl.md"
+  . 11084)
+ ("/podman:emacs-dev:/home/developer/projects/FSBarV1/scripts/examples/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/FSBarV1/scripts/examples/02-graphical-game.fsx"))
+ ("/podman:emacs-dev:/" (dired-filename . "/podman:emacs-dev:/home"))
+ ("/podman:emacs-dev:/home/"
+  (dired-filename . "/podman:emacs-dev:/home/developer"))
+ ("/podman:emacs-dev:/home/developer/"
+  (dired-filename . "/podman:emacs-dev:/home/developer/projects"))
+ ("/podman:emacs-dev:/home/developer/projects/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/FSBarV1"))
+ ("/podman:emacs-dev:/home/developer/projects/FSBarV1/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/FSBarV1/reports"))
+ ("/podman:emacs-dev:/home/developer/projects/FSBarV1/tests/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/FSBarV1/tests/.."))
+ ("/podman:emacs-dev:/home/developer/projects/FSBarV1/specs/001-fsharp-repl-client/plan.md"
+  . 6234)
+ ("/podman:emacs-dev:/home/developer/projects/FSBarV1/specs/001-fsharp-repl-client/spec.md"
+  . 14635)
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/data/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/clients/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/clients/.."))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/clients/fsharp/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/clients/fsharp/.."))
+ ("/podman:emacs-dev:/home/developer/projects/FSBarV1/specs/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/FSBarV1/specs/001-fsharp-repl-client"))
+ ("/podman:emacs-dev:/home/developer/projects/HighBarV2/reports/testreports/"
+  (dired-filename
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/reports"))
  ("/home/eugen/" (dired-filename . "/home/eugen/Documents"))
  ("/home/eugen/Documents/"
   (dired-filename . "/home/eugen/Documents/Projects"))
@@ -10,17 +56,6 @@
  ("/home/eugen/Documents/Projects/SystemAdmin/"
   (dired-filename
    . "/home/eugen/Documents/Projects/SystemAdmin/AnewLayoutStart.md"))
- ("/podman:emacs-dev:/" (dired-filename . "/podman:emacs-dev:/home"))
- ("/podman:emacs-dev:/home/"
-  (dired-filename . "/podman:emacs-dev:/home/developer"))
- ("/podman:emacs-dev:/home/developer/"
-  (dired-filename . "/podman:emacs-dev:/home/developer/projects"))
- ("/podman:emacs-dev:/home/developer/projects/"
-  (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2"))
- ("/podman:emacs-dev:/home/developer/projects/HighBarV2/"
-  (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/reports"))
  ("/podman:emacs-dev:/home/developer/projects/HighBarV2/reports/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/HighBarV2/reports/TEMPLATE.md"))
@@ -37,12 +72,6 @@
  ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/src/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar"))
- ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/"
-  (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/data"))
- ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/"
-  (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2"))
  ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/src/ArmAircraft.fs"
   . 17328)
  ("/podman:emacs-dev:/home/developer/projects/HighBarV2/specs/006-typed-bar-data/"
