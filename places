@@ -22,26 +22,25 @@
    . "/podman:emacs-dev:/home/developer/projects/FSBarV1/reports"))
  ("/podman:emacs-dev:/home/developer/projects/FSBarV1/tests/"
   (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/FSBarV1/tests/.."))
+   . "/podman:emacs-dev:/home/developer/projects/FSBarV1"))
  ("/podman:emacs-dev:/home/developer/projects/FSBarV1/specs/001-fsharp-repl-client/plan.md"
   . 6234)
  ("/podman:emacs-dev:/home/developer/projects/FSBarV1/specs/001-fsharp-repl-client/spec.md"
   . 14635)
  ("/podman:emacs-dev:/home/developer/projects/HighBarV2/"
-  (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/.."))
+  (dired-filename . "/podman:emacs-dev:/home/developer/projects"))
  ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/"
   (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/data/.."))
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2"))
  ("/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/"
   (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/data/bar/.."))
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/data"))
  ("/podman:emacs-dev:/home/developer/projects/HighBarV2/clients/"
   (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/clients/.."))
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2"))
  ("/podman:emacs-dev:/home/developer/projects/HighBarV2/clients/fsharp/"
   (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/clients/fsharp/.."))
+   . "/podman:emacs-dev:/home/developer/projects/HighBarV2/clients"))
  ("/podman:emacs-dev:/home/developer/projects/FSBarV1/specs/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/FSBarV1/specs/001-fsharp-repl-client"))
