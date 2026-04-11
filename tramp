@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-;; -*- emacs-lisp -*- <26/04/09 18:40:58 ~/.config/emacs/tramp>
-=======
-;; -*- emacs-lisp -*- <26/04/10 05:03:48 ~/.emacs.d/tramp>
->>>>>>> 917229b529da9a24bc33aa1875d08d2699ff736a
+;; -*- emacs-lisp -*- <26/04/11 09:42:06 ~/.config/emacs/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; Run `M-x tramp-cleanup-all-connections' instead.
 
 (((tramp-file-name "cache" nil nil nil nil nil nil)
   ("tramp-version" "2.7.3.30.2"))
  ((tramp-file-name "podman" nil nil "emacs-dev" nil nil nil)
-  ("null-device" "/dev/null") ("uname" "Linux 6.19.10-arch1-1")
+  ("null-device" "/dev/null") ("uname" "Linux 6.19.11-arch1-1")
   ("locale" "LC_ALL=C.utf8") ("test" "test") ("file-exists" "test -e")
   ("pipe-buf" 4096) ("remote-shell" "/bin/sh")
   ("stat" "env QUOTING_STYLE=locale \\stat") ("id" "/usr/sbin/id")
@@ -21,7 +17,4 @@
   ("ls--quoting-style=literal --show-control-chars"
    "--quoting-style=literal --show-control-chars")
   ("df-blocksize" 1)
-  ("df" "\\df --block-size=1 --output=size,used,avail") ("dev-tty" t)
-  ("bzr" nil) ("git" "\\git") ("hg" nil) ("perl-file-spec" t)
-  ("perl-cwd-realpath" t) ("perl" "\\perl")
-  ("mknod-or-mkfifo" "mknod %s p")))
+  ("df" "\\df --block-size=1 --output=size,used,avail")))
