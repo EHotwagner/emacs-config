@@ -5,7 +5,7 @@
 (setq goto-line-history '("st"))
 (setq minibuffer-history '("emacs-dev" "temp-dev" "emacs-dev" "temp-dev" "emacs-dev" "yes" "emacs-dev"))
 (setq consult--buffer-history '("*sysadmin*􀀀" "*podman:emacs-dev*􀀀" "*sysadmin*􀀀" "fsBar􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*<3>􀀀" "*sysadmin*􀀀" "ScenarioTests.fs􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*􀀀" "*podman:emacs-dev*<2>􀀀" "*Ibuffer*􀀀" "*podman:emacs-dev*􀀀" "*podman:emacs-dev*<2>􀀀" "SystemAdmin􀀄" "system1" "SystemAdmin􀀄" "*sysadmin*􀀀" "*projects*􀀀" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx􀀃"))
-(setq buffer-name-history '("fbar" "*podman:emacs-dev*" "fsbar" "hbar" "highbar"
+(setq buffer-name-history '("*podman:emacs-dev*<2>" "Mailbox" "2026-04-12_to_FSBarV1_proxy_fixes_complete.md" "fbar" "*podman:emacs-dev*" "fsbar" "hbar" "highbar"
 ;;;  #<buffer *sysadmin*>
 
 ;;;  #<killed buffer>
