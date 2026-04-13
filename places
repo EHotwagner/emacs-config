@@ -1,7 +1,26 @@
 ;;; -*- coding: utf-8; mode: lisp-data -*-
-(("/podman:emacs-dev:/home/developer/projects/SkiaViewer/"
-  (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/SkiaViewer/.."))
+(("/home/eugen/Documents/Projects/SystemAdmin/"
+  (dired-filename . "/home/eugen/Documents/Projects/SystemAdmin/.."))
+ ("/home/eugen/Documents/Projects/"
+  (dired-filename . "/home/eugen/Documents/Projects/.."))
+ ("/home/eugen/Documents/"
+  (dired-filename . "/home/eugen/Documents/.."))
+ ("/home/eugen/" (dired-filename . "/home/eugen/.steam"))
+ ("/home/eugen/.steam/" (dired-filename . "/home/eugen/.steam/root"))
+ ("/home/eugen/.steam/root/bin/"
+  (dired-filename . "/home/eugen/.steam/root/bin/.."))
+ ("/home/eugen/.steam/root/steamapps/"
+  (dired-filename . "/home/eugen/.steam/root/steamapps/.."))
+ ("/home/eugen/.steam/root/steam/games/"
+  (dired-filename . "/home/eugen/.steam/root/steam/games/.."))
+ ("/home/eugen/.steam/root/steam/cached/"
+  (dired-filename . "/home/eugen/.steam/root/steam/cached/.."))
+ ("/home/eugen/.steam/root/steam/"
+  (dired-filename . "/home/eugen/.steam/root/steam/.."))
+ ("/home/eugen/.steam/root/"
+  (dired-filename . "/home/eugen/.steam/root/public"))
+ ("/podman:emacs-dev:/home/developer/projects/SkiaViewer/"
+  (dired-filename . "/podman:emacs-dev:/home/developer/projects"))
  ("/podman:emacs-dev:/" (dired-filename . "/podman:emacs-dev:/home"))
  ("/podman:emacs-dev:/home/"
   (dired-filename . "/podman:emacs-dev:/home/developer"))
@@ -9,7 +28,7 @@
   (dired-filename . "/podman:emacs-dev:/home/developer/projects"))
  ("/podman:emacs-dev:/home/developer/projects/SkiaViewer/specs/"
   (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/SkiaViewer/specs/.."))
+   . "/podman:emacs-dev:/home/developer/projects/SkiaViewer"))
  ("/podman:emacs-dev:/home/developer/projects/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/FSBarV1"))
@@ -19,14 +38,6 @@
  ("/podman:emacs-dev:/home/developer/projects/FSBarV1/specs/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/FSBarV1/specs/019-revamp-viz-library"))
- ("/home/eugen/Documents/Projects/SystemAdmin/"
-  (dired-filename
-   . "/home/eugen/Documents/Projects/SystemAdmin/emacs.hotkeys.md"))
- ("/home/eugen/" (dired-filename . "/home/eugen/Documents"))
- ("/home/eugen/Documents/Projects/"
-  (dired-filename . "/home/eugen/Documents/Projects/SystemAdmin"))
- ("/home/eugen/Documents/"
-  (dired-filename . "/home/eugen/Documents/Projects"))
  ("/podman:emacs-dev:/home/eugen/"
   (dired-filename . "/podman:emacs-dev:/home"))
  ("/podman:emacs-dev:/home/developer/projects/FSBarV1/CLAUDE.md"
