@@ -1,41 +1,43 @@
 ;;; -*- coding: utf-8; mode: lisp-data -*-
-<<<<<<< HEAD
-(("/home/eugen/Documents/Projects/SystemAdmin/"
-  (dired-filename . "/home/eugen/Documents/Projects/SystemAdmin/.."))
+(("/podman:emacs-dev:/" (dired-filename . "/podman:emacs-dev:/home"))
+ ("/home/eugen/" (dired-filename . "/home/eugen/Projects"))
+ ("/home/eugen/Projects/"
+  (dired-filename . "/home/eugen/Projects/SystemAdmin"))
+ ("/home/eugen/Projects/SystemAdmin/"
+  (dired-filename . "/home/eugen/Projects/SystemAdmin/SpecResearch"))
+ ("/podman:emacs-dev:/home/"
+  (dired-filename . "/podman:emacs-dev:/home/developer"))
+ ("/podman:emacs-dev:/home/developer/Downloads/"
+  (dired-filename . "/podman:emacs-dev:/home/developer/Downloads/.."))
+ ("/podman:emacs-dev:/home/developer/tools/"
+  (dired-filename . "/podman:emacs-dev:/home/developer/tools/.."))
+ ("/podman:emacs-dev:/home/developer/"
+  (dired-filename . "/podman:emacs-dev:/home/developer/projects"))
+ ("/podman:emacs-dev:/home/developer/projects/"
+  (dired-filename . "/podman:emacs-dev:/home/developer/projects/.."))
+ ("/home/eugen/Documents/Projects/SystemAdmin/"
+  (dired-filename . "/home/eugen/Documents/Projects"))
  ("/home/eugen/Documents/Projects/"
-  (dired-filename . "/home/eugen/Documents/Projects/.."))
- ("/home/eugen/Documents/"
-  (dired-filename . "/home/eugen/Documents/.."))
- ("/home/eugen/" (dired-filename . "/home/eugen/.steam"))
+  (dired-filename . "/home/eugen/Documents"))
+ ("/home/eugen/Documents/" (dired-filename . "/home/eugen"))
  ("/home/eugen/.steam/" (dired-filename . "/home/eugen/.steam/root"))
  ("/home/eugen/.steam/root/bin/"
-  (dired-filename . "/home/eugen/.steam/root/bin/.."))
+  (dired-filename . "/home/eugen/.steam/root"))
  ("/home/eugen/.steam/root/steamapps/"
-  (dired-filename . "/home/eugen/.steam/root/steamapps/.."))
+  (dired-filename . "/home/eugen/.steam/root"))
  ("/home/eugen/.steam/root/steam/games/"
-  (dired-filename . "/home/eugen/.steam/root/steam/games/.."))
+  (dired-filename . "/home/eugen/.steam/root/steam"))
  ("/home/eugen/.steam/root/steam/cached/"
-  (dired-filename . "/home/eugen/.steam/root/steam/cached/.."))
+  (dired-filename . "/home/eugen/.steam/root/steam"))
  ("/home/eugen/.steam/root/steam/"
-  (dired-filename . "/home/eugen/.steam/root/steam/.."))
+  (dired-filename . "/home/eugen/.steam/root"))
  ("/home/eugen/.steam/root/"
   (dired-filename . "/home/eugen/.steam/root/public"))
  ("/podman:emacs-dev:/home/developer/projects/SkiaViewer/"
-=======
-(("/podman:emacs-dev:/home/developer/projects/SkiaViewer/"
->>>>>>> 3f33b6c3306e27ac5a54dcb7b552c42345aa687f
-  (dired-filename . "/podman:emacs-dev:/home/developer/projects"))
- ("/podman:emacs-dev:/" (dired-filename . "/podman:emacs-dev:/home"))
- ("/podman:emacs-dev:/home/"
-  (dired-filename . "/podman:emacs-dev:/home/developer"))
- ("/podman:emacs-dev:/home/developer/"
   (dired-filename . "/podman:emacs-dev:/home/developer/projects"))
  ("/podman:emacs-dev:/home/developer/projects/SkiaViewer/specs/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/SkiaViewer"))
- ("/podman:emacs-dev:/home/developer/projects/"
-  (dired-filename
-   . "/podman:emacs-dev:/home/developer/projects/FSBarV1"))
  ("/podman:emacs-dev:/home/developer/projects/FSBarV1/"
   (dired-filename
    . "/podman:emacs-dev:/home/developer/projects/FSBarV1/specs"))
