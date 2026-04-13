@@ -4,8 +4,12 @@
 (setq savehist-minibuffer-history-variables '(read-number-history goto-line-history consult--line-history xref--read-pattern-history minibuffer-history consult--buffer-history buffer-name-history file-name-history extended-command-history))
 (setq goto-line-history '("st"))
 (setq minibuffer-history '("emacs-dev" "temp-dev" "emacs-dev" "yes" "emacs-dev"))
-(setq consult--buffer-history '("fsBar􀀀" "sysAdmin􀀀" "fsBar􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*<3>􀀀" "*sysadmin*􀀀" "ScenarioTests.fs􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*􀀀" "*podman:emacs-dev*<2>􀀀" "*Ibuffer*􀀀" "*podman:emacs-dev*􀀀" "*podman:emacs-dev*<2>􀀀" "SystemAdmin􀀄" "system1" "SystemAdmin􀀄" "*sysadmin*􀀀" "*projects*􀀀" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx􀀃"))
+(setq consult--buffer-history '("fsBar􀀀" "sysAdmin􀀀" "fsBar􀀀" "sysAdmin􀀀" "fsBar􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*<3>􀀀" "*sysadmin*􀀀" "ScenarioTests.fs􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*􀀀" "*sysadmin*􀀀" "*podman:emacs-dev*􀀀" "*podman:emacs-dev*<2>􀀀" "*Ibuffer*􀀀" "*podman:emacs-dev*􀀀" "*podman:emacs-dev*<2>􀀀" "SystemAdmin􀀄" "system1" "SystemAdmin􀀄" "*sysadmin*􀀀" "*projects*􀀀" "/podman:emacs-dev:~/projects/PScriptingV2/scratch/playground.fsx􀀃"))
 (setq buffer-name-history '(
+;;;  #<buffer fsBar>
+
+;;;  #<buffer sysAdmin>
+
 ;;;  #<buffer fsBar>
 
 ;;;  #<buffer sysAdmin>
