@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ;; -*- emacs-lisp -*- <26/04/13 21:13:06 ~/.emacs.d/tramp>
+=======
+;; -*- emacs-lisp -*- <26/04/13 18:47:27 ~/.config/emacs/tramp>
+>>>>>>> 7a26e53b43a2c2da6a62877f5e32392554535b51
 ;; Tramp connection history.  Don't change this file.
 ;; Run `M-x tramp-cleanup-all-connections' instead.
 
@@ -17,5 +21,9 @@
   ("ls--quoting-style=literal --show-control-chars"
    "--quoting-style=literal --show-control-chars")
   ("df-blocksize" 1)
+<<<<<<< HEAD
   ("df" "\\df --block-size=1 --output=size,used,avail") ("bzr" nil)
   ("git" "\\git") ("hg" nil)))
+=======
+  ("df" "\\df --block-size=1 --output=size,used,avail") ("dev-tty" t)))
+>>>>>>> 7a26e53b43a2c2da6a62877f5e32392554535b51

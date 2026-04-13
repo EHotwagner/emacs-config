@@ -330,7 +330,8 @@ If already in a TRAMP podman buffer, use that container."
                         (split-string
                          (shell-command-to-string
                           "podman ps --format '{{.Names}}'") "\n" t)))))
-    (vterm (format "*podman:%s*" container))
+    (let ((default-directory "~/"))
+      (vterm (generate-new-buffer-name (format "*podman:%s*" container))))
     (vterm-send-string (format "podman exec -it %s /usr/bin/nu\n" container))))
 
 (global-set-key (kbd "C-c v") #'podman-vterm)
