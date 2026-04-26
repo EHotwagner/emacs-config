@@ -112,7 +112,7 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-dracula t))
+  (load-theme 'doom-nord t))
 
 ;; Window dividers — clear borders between buffers
 (setq window-divider-default-right-width 6
