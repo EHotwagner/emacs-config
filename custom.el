@@ -8,7 +8,11 @@
    '("ed2efc874021b54144b9ed9874e4d9c036090488aeabe19c9ac28576a162ec12"
      "8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098"
      default))
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(claude-code claude-code-ide consult corfu dashboard dirvish docker
+		 dockerfile-mode doom-themes ef-themes eglot-fsharp
+		 magit marginalia markdown-mode mcp-server nov
+		 nushell-mode orderless vertico vterm))
  '(package-vc-selected-packages
    '((mcp-server :url "https://github.com/rhblind/emacs-mcp-server"))))
 (custom-set-faces

@@ -42,6 +42,7 @@
          ("F#" (mode . fsharp-mode))
          ("Nushell" (mode . nushell-mode))
          ("Markdown" (mode . markdown-mode))
+         ("Books" (mode . nov-mode))
          ("Terminal" (mode . vterm-mode))
          ("Emacs" (or (name . "^\\*") (name . "^\\s-"))))))
 (add-hook 'ibuffer-mode-hook
@@ -366,3 +367,15 @@ If already in a TRAMP podman buffer, use that container."
          ("C-c m p" . markdown-live-preview-mode)
          ("C-c m e" . markdown-export)
          ("C-c m o" . markdown-open)))
+
+;; Epub reader
+(use-package nov
+  :ensure t
+  :mode ("\\.epub\\'" . nov-mode)
+  :hook (nov-mode . (lambda ()
+                      (visual-line-mode 1)
+                      (variable-pitch-mode 1)
+                      (face-remap-add-relative 'variable-pitch :height 1.1)
+                      (setq-local cursor-type 'bar)))
+  :custom
+  (nov-text-width 80))
